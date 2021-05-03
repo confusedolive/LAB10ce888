@@ -44,7 +44,7 @@ def homepage():
     return render_template('home.html')
 
 
-@app.route('/home', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
 def my_form_post():
     if request.method == 'POST':
         age = request.form['age']
@@ -56,7 +56,7 @@ def my_form_post():
         thal = request.form['thal']
         req_model = request.form['req_model']
 
-        target = get_predictions(age, thalach, cp, exang, oldpeak, ca, thal, req_model)
+        target = get_predictions(age, thalach, exang, oldpeak, ca, thal, cp, req_model)
 
         if target==1:
             sale_making = 'Patient has heart problems'
@@ -69,4 +69,3 @@ def my_form_post():
 
 if __name__ == "__main__":
     app.run(debug=True)
-    
