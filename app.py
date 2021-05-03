@@ -44,7 +44,7 @@ def homepage():
     return render_template('home.html')
 
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/home', methods=['POST', 'GET'])
 def my_form_post():
     if request.method == 'POST':
         age = request.form['age']
