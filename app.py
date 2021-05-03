@@ -41,7 +41,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    return render_template('home.html')
+    return render_template(r'home.html')
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -63,9 +63,9 @@ def my_form_post():
         else:
             sale_making = 'Patient has no heart problems'
 
-        return render_template('home.html', target = target, sale_making = sale_making)
+        return render_template(r'home.html', target = target, sale_making = sale_making)
     else:
-        return render_template('home.html')
+        return render_template(r'home.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

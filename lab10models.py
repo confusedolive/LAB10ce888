@@ -26,7 +26,6 @@ data.isnull().sum()
 
 X = data.iloc[:, :-1].copy()
 y = data.iloc[:, -1].copy()
-data.columns
 
 standard = StandardScaler()
 to_scale = ['age', 'trestbps', 'chol', 'thalach', 'oldpeak']
@@ -56,9 +55,7 @@ def boruta_selected():
 features_importance, not_importante = boruta_selected()
 
 
-X = X[features_importance]
-
-X.columns
+X = X[columns_important]
 
 columns_important = ['age', 'cp', 'thalach', 'exang', 'oldpeak' ,'ca' ,'thal']
 X_train, X_test, y_train, y_test = train_test_split(
@@ -120,3 +117,7 @@ pkl_svc = os.path.join(model_dir, 'svc_pkl_model.pkl')
 
 with open(pkl_svc, 'wb') as f:
     pkl.dump(cv_grid_svc, f)
+
+with open('models/logistic_pkl_model.pkl', 'rb') as f:
+    logistic = pkl.load(f)
+logistic.predict(X)[0]
