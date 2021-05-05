@@ -11,8 +11,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.svm import SVC
-
-
+print(np.__version__)
 model_dir = os.path.join(os.getcwd(), 'models')
 
 if not os.path.exists(model_dir):
